@@ -1,0 +1,107 @@
+﻿<Window x:Class="AP_Gestion_HALAOUI.View.UI_Configuration_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AP_Gestion_HALAOUI.View"
+        mc:Ignorable="d" Height="350" Width="500"
+        MaxHeight="350" MaxWidth="500"
+        MinHeight="350" MinWidth="500">
+    <Grid Background="White" Margin="0,0,0,0" x:Name="Login">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Label Content="Paramètres de la base de données" HorizontalAlignment="Center" FontSize="21"></Label>
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Hôte : " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Grid.Column="0"></Label>
+            <Label Content="Port : " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Grid.Column="2" Padding="100,0,0,0" ></Label>
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="10"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="1" Grid.Column="0" Name="TB_bdd_host"></TextBox>
+                <TextBox Grid.Row="1" Grid.Column="2" Name="TB_bdd_port"></TextBox>
+
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Identifiant : " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Grid.Column="0"></Label>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="10"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="1" Name="TB_bdd_username"></TextBox>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Mot de passe : " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Grid.Column="0"></Label>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="10"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="1" Name="TB_bdd_password"></TextBox>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="25"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="25"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="25"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="2"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="1" Grid.Column="1" Content="Annuler" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="0,0,0,0" Padding="0,0,0,0" x:Name="BTN_Annuler"></Button>
+            <Button Grid.Row="1" Grid.Column="3" Content="Tester" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="0,0,0,0" Padding="0,0,0,0" x:Name="BTN_Test" Click="BTN_Test_Click"></Button>
+            <Button Grid.Row="1" Grid.Column="5" Content="Sauvegarder" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="0,0,0,0" Padding="0,0,0,0" x:Name="BTN_Valider"></Button>
+        </Grid>
+        
+    </Grid>
+</Window>

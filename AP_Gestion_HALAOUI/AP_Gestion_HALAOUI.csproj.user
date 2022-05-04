@@ -7,10 +7,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Controller\CT_FNS.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="View\UI_Configuration.xaml.cs">
+    <Compile Update="View\UI_Configuration_Window.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\UI_Login_Window.xaml.cs">
@@ -21,7 +18,7 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\UI_Configuration.xaml">
+    <Page Update="View\UI_Configuration_Window.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\UI_Login_Window.xaml">

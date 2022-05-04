@@ -25,12 +25,18 @@ namespace AP_Gestion_HALAOUI.BDD
         public virtual DbSet<UsersAdmin> UsersAdmins { get; set; }
         public virtual DbSet<Utilisateur> Utilisateurs { get; set; }
 
+      
+        public void SetConnPriv(string conn)
+        {
+            
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql("server=localhost;port=3306;user=root;database=projet_ap", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.21-mysql"));
+            optionsBuilder.UseMySql("server=localhost;port=3306;user=root;database=projet_ap;", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.21-mysql"), o => o.CommandTimeout(100));
             }
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
