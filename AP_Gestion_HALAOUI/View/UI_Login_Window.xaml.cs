@@ -10,10 +10,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using AP_Gestion_HALAOUI.DAO;
-using AP_Gestion_HALAOUI.Controller;
 using AP_Gestion_HALAOUI.BDD;
 using AP_Gestion_HALAOUI.View;
-
+using AP_Gestion_HALAOUI.Controller;
 namespace AP_Gestion_HALAOUI.View
 {
     /// <summary>
@@ -27,7 +26,9 @@ namespace AP_Gestion_HALAOUI.View
         {
 
             InitializeComponent();
-            /* Mettre les dimensiosn voulu ici */
+
+            
+            /* Mettre les dimensions voulues ici */
             tac = mn;
 
 
@@ -36,40 +37,64 @@ namespace AP_Gestion_HALAOUI.View
 
         private void BTN_Connexion_Click(object sender, RoutedEventArgs e)
         {
+            // Vérifier si le champs de login est vide
             if (TB_Username.Text != "")
             {
+                // Vérifier si le champs de mot de passe est vide
                 if (TB_Password.Password != "")
                 {
+                    // Créations des objets
                     Utilisateur utilisateur = new Utilisateur();
                     DAOEscapegame DAO = new DAOEscapegame();
-                    if (DAO.CheckUsername(TB_Username.Text, TB_Password.Password) == true)
+                    CT_AP CT = new CT_AP();
+                     
+                    // Vérification si la DB est accessible
+                    if (DAO.TestDBAcces() == true)
                     {
+                        // Vérification si les identifiants sont bons
+                        // Le mot de passe est crypté en MD5
+                        if (DAO.Login(TB_Username.Text, CT.MD5(TB_Password.Password)) == true)
+                        {
+                            // Si les identifiants sont bons, on passe en argument les informations de l'utilisateur
                             this.Close();
                             tac.arg(TB_Username.Text);
                             tac.Show();
+                        }
+                        else
+                        {
+                            // Si les identifiants sont mauvais, on affiche un message d'erreur
+                            MessageBox.Show("Identifiants incorrects", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Identifiants incorrects");
+                        // Si la DB n'est pas accessible, on affiche un message d'erreur
+                        MessageBox.Show("Impossible de se connecter à la base de données", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Veuillez entrer un mot de passe");
+                    // Si le champs de mot de passe est vide, on affiche un message d'erreur
+                    MessageBox.Show("Veuillez entrer un mot de passe", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Veuillez entrer un nom d'utilisateur");
+                // Si le champs de login est vide, on affiche un message d'erreur
+                MessageBox.Show("Veuillez entrer un nom d'utilisateur", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void BTN_Configuration_Click(object sender, RoutedEventArgs e)
         {
+            /*
             UI_Configuration uI_Configuration = new UI_Configuration();
             Window con = new Window();
             con.Content = uI_Configuration;
-            con.Show();
+            con.Show
+            */
+            UI_Configuration_Window uI_Configuration_Window = new UI_Configuration_Window();
+            uI_Configuration_Window.Show();
 
 
         }
