@@ -5281,11 +5281,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SIO2\\source\\repos\\AP_Gestion-master\\AP_Gestion-master\\AP_Gestion_HALAOUI\\AP_Gestion_HALAOUI.csproj",
+      "projectUniqueName": "C:\\Users\\SIO2\\source\\repos\\__AP\\AP_Gestion_HALAOUI\\AP_Gestion_HALAOUI.csproj",
       "projectName": "AP_Gestion_HALAOUI",
-      "projectPath": "C:\\Users\\SIO2\\source\\repos\\AP_Gestion-master\\AP_Gestion-master\\AP_Gestion_HALAOUI\\AP_Gestion_HALAOUI.csproj",
+      "projectPath": "C:\\Users\\SIO2\\source\\repos\\__AP\\AP_Gestion_HALAOUI\\AP_Gestion_HALAOUI.csproj",
       "packagesPath": "C:\\Users\\SIO2\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SIO2\\source\\repos\\AP_Gestion-master\\AP_Gestion-master\\AP_Gestion_HALAOUI\\obj\\",
+      "outputPath": "C:\\Users\\SIO2\\source\\repos\\__AP\\AP_Gestion_HALAOUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

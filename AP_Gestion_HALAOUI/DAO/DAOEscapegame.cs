@@ -20,43 +20,28 @@ namespace AP_Gestion_HALAOUI.DAO
            return null;
         }
 
-        public bool CheckUsername(string username)
+        public bool CheckUsername(string username, string motdepasse)
         {
             bool present = false;
             IEnumerable<Utilisateur> AllUtilisateur = new List<Utilisateur>();
             using (Context = new projet_apContext())
             {
                 AllUtilisateur = Context.Utilisateurs.ToList();
-            }
-
-            foreach (Utilisateur utilisateur in AllUtilisateur)
-            {
-                if(utilisateur.Email == username)
+                try
                 {
-                    present = true;
+                    var tt = Context.Utilisateurs.Where(u => u.Email == username && u.Motdepasse == motdepasse).Single();
+                    return true;
                 }
+                catch (Exception ex)
+                {
+                    string er = ex.ToString();
+                    return false;
+                }
+              
             }
-            return present;
         }
 
-        public bool CheckUsernamePassword(string username, string password)
-        {
-            bool valide = false;
-            IEnumerable<Utilisateur> AllUtilisateur = new List<Utilisateur>();
-            using (Context = new projet_apContext())
-            {
-                AllUtilisateur = Context.Utilisateurs.ToList();
-            }
-
-            foreach (Utilisateur utilisateur in AllUtilisateur)
-            {
-                if (utilisateur.Email == username && utilisateur.Motdepasse == password)
-                {
-                    valide = true;
-                }
-            }
-            return valide;
-        }
+     
 
     }
 }

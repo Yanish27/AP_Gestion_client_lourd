@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AP_Gestion_HALAOUI.View;
+using AP_Gestion_HALAOUI.Controller;
 namespace AP_Gestion_HALAOUI
 {
     /// <summary>
@@ -34,6 +35,8 @@ namespace AP_Gestion_HALAOUI
         {
             MessageBox.Show("Variable passée : " + bla);
             label.Content = "Bonjour " + bla;
+            CT_FNS cT = new CT_FNS();
+
         }
 
     }

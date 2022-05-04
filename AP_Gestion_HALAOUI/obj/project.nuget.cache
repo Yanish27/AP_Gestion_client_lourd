@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BUBvosAGOGxbw5dhfJB0PoWAP5pCyyxKqkHDOfxrx12VwI77VYTVlN60qqrJrxr3spZxb2+tZXPFynLJrldcdQ==",
+  "dgSpecHash": "/IXHLcpiIew+1ZxjuKFcjNc8ogKy1lNkhnTJIceE5sAKuTg2niXXvLgokN6LMUitYdsPYDX54E1jHcgE59AyGw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\SIO2\\source\\repos\\AP_Gestion-master\\AP_Gestion-master\\AP_Gestion_HALAOUI\\AP_Gestion_HALAOUI.csproj",
+  "projectFilePath": "C:\\Users\\SIO2\\source\\repos\\__AP\\AP_Gestion_HALAOUI\\AP_Gestion_HALAOUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\SIO2\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\SIO2\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

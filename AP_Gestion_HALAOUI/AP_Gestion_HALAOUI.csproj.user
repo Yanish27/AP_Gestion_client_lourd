@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Controller\CT_FNS.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="View\UI_Configuration.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
