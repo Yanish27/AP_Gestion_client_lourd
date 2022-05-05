@@ -59,7 +59,45 @@ class DAOEscapegame
             return abc;
            
         }
-    
+
+        public DB ReturnDBObject()
+        {
+            DB db = new DB();
+            
+            string[] words = get_ConnexionString().Split(';');
+
+            if (words[0].Replace("server=", "") != "")
+            {
+                foreach (string word in words)
+                {
+                    if (word.Contains("server="))
+                    {
+                        db.server = word.Replace("server=", "");
+                    }
+                    if (word.Contains("port="))
+                    {
+                        db.port = Convert.ToInt32(word.Replace("port=", ""));
+                    }
+                    if (word.Contains("user="))
+                    {
+                        db.identifiant = word.Replace("user=", "");
+                    }
+                    if (word.Contains("password="))
+                    {
+                        db.motdepasse = word.Replace("password=", "");
+                    }
+                    if (word.Contains("database="))
+                    {
+                        db.bdd = word.Replace("database=", "");
+                    }
+                }
+            }
+            
+            return db;
+        }
+
+
+
         public void set_ConnexionString(string host, int port, string id, string mdp, string DB)
         {
 

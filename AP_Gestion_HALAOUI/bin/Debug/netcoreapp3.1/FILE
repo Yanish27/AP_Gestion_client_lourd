@@ -1,1 +1,1 @@
-server=;port=;user=;password=;database=;
+server=localhost;port=3306;user=root;password=azaz;database=projet_ap

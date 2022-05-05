@@ -22,11 +22,26 @@ namespace AP_Gestion_HALAOUI.View
     /// </summary>
     public partial class UI_Configuration_Window : Window
     {
+        DAOEscapegame DAO = new DAOEscapegame();
         public UI_Configuration_Window()
         {
             InitializeComponent();
             BTN_Valider.IsEnabled = false;
+
+
+            //DAO.set_ConnexionString("127.0.0.1", 3306, "route", "motdpass", "projet_ap");
+
             
+            DB db = DAO.ReturnDBObject();
+
+            TB_bdd_host.Text = db.server;
+            TB_bdd_port.Text = db.port.ToString();
+            TB_bdd_username.Text = db.identifiant;
+            TB_bdd_password.Text = db.motdepasse;
+
+
+
+
             //DAO.set_ConnexionString("199.999.999.999", 9999, "root", "mdp", "DB");
 
 
@@ -35,13 +50,13 @@ namespace AP_Gestion_HALAOUI.View
 
         private void BTN_Test_Click(object sender, RoutedEventArgs e)
         {
-            DAOEscapegame DAO = new DAOEscapegame();
 
 
             DAO.set_ConnexionString(TB_bdd_host.Text,3306, TB_bdd_username.Text, TB_bdd_password.Text, "projet_ap");
+            
+           
 
-
-            if (DAO.TestDBAcces())
+                if (DAO.TestDBAcces())
             {
                 BTN_Valider.IsEnabled = true;
                 MessageBox.Show("Connexion à la base de données réussie", "Connexion à la DB", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -51,7 +66,7 @@ namespace AP_Gestion_HALAOUI.View
                 MessageBox.Show("Connexion à la base de données échouée", "Connexion à la DB", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            /* ...... */
+            
 
         }
     }

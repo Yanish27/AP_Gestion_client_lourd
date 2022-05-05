@@ -229,3 +229,5 @@ C:\Users\SIO2\source\repos\AP_Gestion_client_lourd\AP_Gestion_HALAOUI\obj\Debug\
 C:\Users\SIO2\source\repos\AP_Gestion_client_lourd\AP_Gestion_HALAOUI\obj\Debug\netcoreapp3.1\AP_Gestion_HALAOUI.dll
 C:\Users\SIO2\source\repos\AP_Gestion_client_lourd\AP_Gestion_HALAOUI\obj\Debug\netcoreapp3.1\AP_Gestion_HALAOUI.pdb
 C:\Users\SIO2\source\repos\AP_Gestion_client_lourd\AP_Gestion_HALAOUI\obj\Debug\netcoreapp3.1\AP_Gestion_HALAOUI.genruntimeconfig.cache
+C:\Users\PC\source\repos\AP_Gestion_client_lourd\AP_Gestion_HALAOUI\obj\Debug\netcoreapp3.1\View\UI_Configuration.g.cs
+C:\Users\PC\source\repos\AP_Gestion_client_lourd\AP_Gestion_HALAOUI\obj\Debug\netcoreapp3.1\View\UI_Configuration.baml
