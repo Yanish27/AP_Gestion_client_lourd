@@ -13,6 +13,7 @@ using AP_Gestion_HALAOUI.DAO;
 using AP_Gestion_HALAOUI.BDD;
 using AP_Gestion_HALAOUI.View;
 using AP_Gestion_HALAOUI.Controller;
+using System.Windows.Threading;
 namespace AP_Gestion_HALAOUI.View
 {
     /// <summary>
@@ -22,14 +23,19 @@ namespace AP_Gestion_HALAOUI.View
     {
         public MainWindow tac;
         public string bla = "a";
+
         public UI_Login_Window(MainWindow mn)
         {
 
             InitializeComponent();
+            DAOEscapegame DAO = new DAOEscapegame();
+            DAO.reset_ConnexionString();
 
-            
+          
+
             /* Mettre les dimensions voulues ici */
             tac = mn;
+
 
 
         }
@@ -87,20 +93,12 @@ namespace AP_Gestion_HALAOUI.View
 
         private void BTN_Configuration_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            UI_Configuration uI_Configuration = new UI_Configuration();
-            Window con = new Window();
-            con.Content = uI_Configuration;
-            con.Show
-            */
             UI_Configuration_Window uI_Configuration_Window = new UI_Configuration_Window();
             uI_Configuration_Window.Show();
-
-
         }
 
         private void BTN_Quitter_Click(object sender, RoutedEventArgs e)
-        {
+        { 
         }
     }
 }

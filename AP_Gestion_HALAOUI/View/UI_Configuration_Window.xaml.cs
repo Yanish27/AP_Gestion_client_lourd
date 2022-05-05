@@ -12,6 +12,9 @@ using System.Windows.Shapes;
 using AP_Gestion_HALAOUI.Controller;
 using AP_Gestion_HALAOUI.DAO;
 using AP_Gestion_HALAOUI.BDD;
+using System;
+using System.IO;
+
 namespace AP_Gestion_HALAOUI.View
 {
     /// <summary>
@@ -23,11 +26,8 @@ namespace AP_Gestion_HALAOUI.View
         {
             InitializeComponent();
             BTN_Valider.IsEnabled = false;
-            DAOEscapegame DAO = new DAOEscapegame();
-            string ConnexionString_Save = DAO.get_ConnexionString();
-            MessageBox.Show(DAO.get_ConnexionString());
-            DAO.set_ConnexionString("server=127.0.0.1;port=3306;user=yaya;password=yaya;database=projet_ap;");
-            MessageBox.Show(DAO.get_ConnexionString());
+            
+            //DAO.set_ConnexionString("199.999.999.999", 9999, "root", "mdp", "DB");
 
 
 
@@ -36,6 +36,11 @@ namespace AP_Gestion_HALAOUI.View
         private void BTN_Test_Click(object sender, RoutedEventArgs e)
         {
             DAOEscapegame DAO = new DAOEscapegame();
+
+
+            DAO.set_ConnexionString(TB_bdd_host.Text,3306, TB_bdd_username.Text, TB_bdd_password.Text, "projet_ap");
+
+
             if (DAO.TestDBAcces())
             {
                 BTN_Valider.IsEnabled = true;

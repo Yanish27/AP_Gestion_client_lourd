@@ -9,12 +9,24 @@ using AP_Gestion_HALAOUI;
 using System.Diagnostics;
 using AP_Gestion_HALAOUI.Controller;
 using System.Data;
+
 namespace AP_Gestion_HALAOUI.DAO
 {
-    class DAOEscapegame
+    public class DB
+    {
+        public string server { get; set; }
+        public string identifiant { get; set; }
+        public string motdepasse { get; set; }
+        public int port { get; set; }
+        public string bdd { get; set; }
+
+   
+    }
+
+class DAOEscapegame
     {
         private projet_apContext Context;
-        
+
         public bool TestDBAcces()
         {
             bool dbaccess = true;
@@ -35,33 +47,32 @@ namespace AP_Gestion_HALAOUI.DAO
 
         public string get_ConnexionString()
         {
-            using (Context = new projet_apContext())
+            string abc = "";
+            try
             {
-                return Context.Database.GetConnectionString();
-
+                abc = System.IO.File.ReadAllLines("FILE")[0];
             }
-        } 
-        
-        public bool set_ConnexionString(string Connexionstr)
-        {
-            using (Context = new projet_apContext())
+            catch
             {
-
-                Context.Database.SetConnectionString(Connexionstr);
-
-                try
-                {
-                    Context.Database.OpenConnection();
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-                return true;
-
+                abc = null;
             }
+            return abc;
+           
         }
-        
+    
+        public void set_ConnexionString(string host, int port, string id, string mdp, string DB)
+        {
+
+            System.IO.File.WriteAllText("FILE", "server="+host+";port="+port+";user="+id +";password="+ mdp + ";database=" +DB);
+        }
+
+
+        public void reset_ConnexionString()
+        {
+            System.IO.File.WriteAllText("FILE", "server=;port=;user=;password=;database=;");
+        }
+
+
         public bool Login(string username, string motdepasse)
         {
             using (Context = new projet_apContext())

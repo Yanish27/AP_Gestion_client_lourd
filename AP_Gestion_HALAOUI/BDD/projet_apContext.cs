@@ -1,6 +1,11 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using AP_Gestion_HALAOUI.Controller;
+using AP_Gestion_HALAOUI.DAO;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
 #nullable disable
 
@@ -8,6 +13,7 @@ namespace AP_Gestion_HALAOUI.BDD
 {
     public partial class projet_apContext : DbContext
     {
+            
         public projet_apContext()
         {
         }
@@ -25,17 +31,31 @@ namespace AP_Gestion_HALAOUI.BDD
         public virtual DbSet<UsersAdmin> UsersAdmins { get; set; }
         public virtual DbSet<Utilisateur> Utilisateurs { get; set; }
 
-      
-        public void SetConnPriv(string conn)
+
+        public DB dB = new DB();
+        public DB SetConnPriv(string server, int port, string identifiant, string mdp,  string bdd)
         {
-            
+
+            dB.server = server;
+            dB.port = port;
+            dB.motdepasse = mdp;
+            dB.identifiant = identifiant;
+            dB.bdd = bdd;
+
+            return dB;
         }
+
+        public DB getDB()
+        {
+            return dB;
+        }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-            optionsBuilder.UseMySql("server=localhost;port=3306;user=root;database=projet_ap;", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.21-mysql"), o => o.CommandTimeout(100));
-            }
+            DAOEscapegame DAO = new DAOEscapegame();
+            optionsBuilder.UseMySql(DAO.get_ConnexionString(), Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.21-mysql"), o => o.CommandTimeout(100));
+    
             
         }
 
