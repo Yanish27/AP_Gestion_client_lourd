@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AP_Gestion_HALAOUI.View;
+using AP_Gestion_HALAOUI.DAO;
 namespace AP_Gestion_HALAOUI
 {
     /// <summary>
@@ -23,6 +24,13 @@ namespace AP_Gestion_HALAOUI
         public MainWindow()
         {
             InitializeComponent();
+
+
+
+            DAOEscapegame DAO = new DAOEscapegame();
+            DAO.reset_ConnexionString();
+
+
             UI_Login_Window uI_Login_Window = new UI_Login_Window(this);
             Window UI_Login_Window = new UI_Login_Window(this);
             UI_Login_Window.Show();
@@ -37,5 +45,7 @@ namespace AP_Gestion_HALAOUI
 
         }
 
+
+        
     }
 }

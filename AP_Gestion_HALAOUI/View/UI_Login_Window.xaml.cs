@@ -14,6 +14,8 @@ using AP_Gestion_HALAOUI.BDD;
 using AP_Gestion_HALAOUI.View;
 using AP_Gestion_HALAOUI.Controller;
 using System.Windows.Threading;
+
+
 namespace AP_Gestion_HALAOUI.View
 {
     /// <summary>
@@ -29,17 +31,26 @@ namespace AP_Gestion_HALAOUI.View
 
             InitializeComponent();
             DAOEscapegame DAO = new DAOEscapegame();
+            CT_AP CT = new CT_AP();
             DAO.reset_ConnexionString();
+            BTN_Connexion.IsEnabled = false;
 
-          
+
 
             /* Mettre les dimensions voulues ici */
             tac = mn;
-
+           
 
 
         }
 
+      
+
+
+    private void DB_Access_OK()
+        {
+            BTN_Connexion.IsEnabled = true;
+        }
 
         private void BTN_Connexion_Click(object sender, RoutedEventArgs e)
         {
@@ -52,8 +63,9 @@ namespace AP_Gestion_HALAOUI.View
                     // Créations des objets
                     Utilisateur utilisateur = new Utilisateur();
                     DAOEscapegame DAO = new DAOEscapegame();
+
                     CT_AP CT = new CT_AP();
-                     
+
                     // Vérification si la DB est accessible
                     if (DAO.TestDBAcces() == true)
                     {
