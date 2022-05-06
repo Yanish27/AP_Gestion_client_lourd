@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Security.Cryptography;
+using AP_Gestion_HALAOUI.View;
+
+using TimersTimer = System.Timers.Timer;
+using System.Threading;
+
 namespace AP_Gestion_HALAOUI.Controller
 {
     public class CT_AP
@@ -19,5 +24,9 @@ namespace AP_Gestion_HALAOUI.Controller
                 }
                 return sb.ToString().ToLower();
         }
+
+
+
+
     }
 }

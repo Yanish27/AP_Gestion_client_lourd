@@ -98,9 +98,8 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="2"></RowDefinition>
             </Grid.RowDefinitions>
-            <Button Grid.Row="1" Grid.Column="1" Content="Annuler" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="0,0,0,0" Padding="0,0,0,0" x:Name="BTN_Annuler"></Button>
-            <Button Grid.Row="1" Grid.Column="3" Content="Tester" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="0,0,0,0" Padding="0,0,0,0" x:Name="BTN_Test" Click="BTN_Test_Click"></Button>
-            <Button Grid.Row="1" Grid.Column="5" Content="Sauvegarder" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="0,0,0,0" Padding="0,0,0,0" x:Name="BTN_Valider"></Button>
+            <Button Grid.Row="1" Grid.Column="1" Content="Tester" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="0,0,0,0" Padding="0,0,0,0" x:Name="BTN_Test" Click="BTN_Test_Click"></Button>
+            <Button Grid.Row="1" Grid.Column="5" Content="Sauvegarder" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="0,0,0,0" Padding="0,0,0,0" x:Name="BTN_Valider" Click="BTN_Valider_Click"></Button>
         </Grid>
         
     </Grid>
