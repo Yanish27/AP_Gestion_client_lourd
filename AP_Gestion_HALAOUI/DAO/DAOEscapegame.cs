@@ -60,14 +60,24 @@ class DAOEscapegame
            
         }
 
-<<<<<<< Updated upstream
-=======
-        /// <summary>
-        /// Création de la class DB
-        /// </summary>
-        /// <returns></returns>
->>>>>>> Stashed changes
-        public DB ReturnDBObject()
+
+        // get_Salles
+        public List<Salle> get_Salles()
+        {
+            using (Context = new projet_apContext())
+            {
+                return Context.Salles.ToList();
+            }
+        }
+        
+        public Salle ID_To_Salle(string nom)
+        {
+            using (Context = new projet_apContext())
+            {
+                return Context.Salles.FirstOrDefault(s => s.NomSalle == nom);
+            }
+        }
+            public DB ReturnDBObject()
         {
             DB db = new DB();
             

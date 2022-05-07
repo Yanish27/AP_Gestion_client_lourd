@@ -33,12 +33,15 @@ namespace AP_Gestion_HALAOUI.View
             DAOEscapegame DAO = new DAOEscapegame();
             CT_AP CT = new CT_AP();
             DAO.reset_ConnexionString();
-            BTN_Connexion.IsEnabled = false;
 
 
+            DAO.set_ConnexionString("127.0.0.1", 3306, "root", "", "projet_ap");
 
             /* Mettre les dimensions voulues ici */
             tac = mn;
+
+            TB_Password.Password = "mdp";
+            TB_Username.Text = "yanish";
            
 
 

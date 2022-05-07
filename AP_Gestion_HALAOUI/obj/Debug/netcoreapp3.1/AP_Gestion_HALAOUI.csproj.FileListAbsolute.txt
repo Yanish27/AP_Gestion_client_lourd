@@ -280,3 +280,5 @@ C:\Users\PC\Desktop\projet apo\0705\AP_Gestion_HALAOUI\obj\Debug\netcoreapp3.1\A
 C:\Users\PC\Desktop\projet apo\0705\AP_Gestion_HALAOUI\obj\Debug\netcoreapp3.1\AP_Gestion_HALAOUI.dll
 C:\Users\PC\Desktop\projet apo\0705\AP_Gestion_HALAOUI\obj\Debug\netcoreapp3.1\AP_Gestion_HALAOUI.pdb
 C:\Users\PC\Desktop\projet apo\0705\AP_Gestion_HALAOUI\obj\Debug\netcoreapp3.1\AP_Gestion_HALAOUI.genruntimeconfig.cache
+C:\Users\PC\Desktop\projet apo\0705\AP_Gestion_HALAOUI\obj\Debug\netcoreapp3.1\View\UI_Salle.g.cs
+C:\Users\PC\Desktop\projet apo\0705\AP_Gestion_HALAOUI\obj\Debug\netcoreapp3.1\View\UI_Salle.baml

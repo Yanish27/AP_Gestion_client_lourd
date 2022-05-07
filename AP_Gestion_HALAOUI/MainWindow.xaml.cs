@@ -14,8 +14,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AP_Gestion_HALAOUI.View;
 using AP_Gestion_HALAOUI.DAO;
+using AP_Gestion_HALAOUI.BDD;
 namespace AP_Gestion_HALAOUI
 {
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -40,12 +42,23 @@ namespace AP_Gestion_HALAOUI
 
         public void arg(string bla)
         {
+            DAOEscapegame DAO = new DAOEscapegame();
+
+            CB_Salles.Items.Add("Général");
+            foreach (Salle salles in DAO.get_Salles())
+            {
+                CB_Salles.Items.Add(salles.NomSalle);
+            }
             MessageBox.Show("Variable passée : " + bla);
-            label.Content = "Bonjour " + bla;
 
         }
 
-
-        
+        private void CB_Salles_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DAOEscapegame DAO = new DAOEscapegame();
+            AffichageSalle.Children.Clear();
+            MessageBox.Show(CB_Salles.SelectedValue.ToString());
+            AffichageSalle.Children.Add(new UI_Salle(DAO.ID_To_Salle(CB_Salles.SelectedValue.ToString())));
+        }
     }
 }
