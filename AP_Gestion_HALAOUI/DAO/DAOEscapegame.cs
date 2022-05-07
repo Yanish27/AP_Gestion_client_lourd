@@ -60,6 +60,10 @@ class DAOEscapegame
            
         }
 
+        /// <summary>
+        /// Création d'un objet de type DB
+        /// </summary>
+        /// <returns></returns>
         public DB ReturnDBObject()
         {
             DB db = new DB();
