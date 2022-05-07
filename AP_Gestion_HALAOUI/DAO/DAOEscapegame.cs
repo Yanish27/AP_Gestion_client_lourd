@@ -60,6 +60,13 @@ class DAOEscapegame
            
         }
 
+<<<<<<< Updated upstream
+=======
+        /// <summary>
+        /// Création de la class DB
+        /// </summary>
+        /// <returns></returns>
+>>>>>>> Stashed changes
         public DB ReturnDBObject()
         {
             DB db = new DB();

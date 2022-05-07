@@ -37,14 +37,13 @@ namespace AP_Gestion_HALAOUI.View
 
         }
 
+        
+        /// <summary>
+        /// Un appui sur le bouton Test
+        /// </summary>
         private void BTN_Test_Click(object sender, RoutedEventArgs e)
         {
-
-
             DAO.set_ConnexionString(TB_bdd_host.Text,3306, TB_bdd_username.Text, TB_bdd_password.Text, "projet_ap");
-            
-           
-
                 if (DAO.TestDBAcces())
                 {
 
@@ -56,15 +55,10 @@ namespace AP_Gestion_HALAOUI.View
             {
                 MessageBox.Show("Connexion à la base de données échouée", "Connexion à la DB", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-            
-
         }
 
         private void BTN_Valider_Click(object sender, RoutedEventArgs e)
         {
-
-            
             this.Close();
         }
     }
