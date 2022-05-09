@@ -29,7 +29,9 @@ namespace AP_Gestion_HALAOUI.View
             {
                 lbltxt.Content = lbltxt.Content + " " + "✸";
             }
-                
+
+            lbl_title.Content = lbl_title.Content + " " + nomSalle.NomSalle;
+
         }
     }
 }
