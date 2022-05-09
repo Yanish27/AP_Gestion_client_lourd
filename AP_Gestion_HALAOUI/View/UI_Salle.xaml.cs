@@ -30,8 +30,16 @@ namespace AP_Gestion_HALAOUI.View
                 lbltxt.Content = lbltxt.Content + " " + "✸";
             }
 
+
+
+            DAOEscapegame DAO = new DAOEscapegame();
+
+            MessageBox.Show(DAO.nbJoueurTotal(nomSalle).ToString());
+
             lbl_title.Content = lbl_title.Content + " " + nomSalle.NomSalle;
 
+            lbl_title.VerticalAlignment = VerticalAlignment.Center;
+            lbl_title.HorizontalAlignment = HorizontalAlignment.Left;
         }
     }
 }

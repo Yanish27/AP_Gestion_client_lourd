@@ -57,8 +57,9 @@ namespace AP_Gestion_HALAOUI
         {
             DAOEscapegame DAO = new DAOEscapegame();
             AffichageSalle.Children.Clear();
-            MessageBox.Show(CB_Salles.SelectedValue.ToString());
+            // MessageBox.Show(CB_Salles.SelectedValue.ToString());
             AffichageSalle.Children.Add(new UI_Salle(DAO.ID_To_Salle(CB_Salles.SelectedValue.ToString())));
+
         }
     }
 }

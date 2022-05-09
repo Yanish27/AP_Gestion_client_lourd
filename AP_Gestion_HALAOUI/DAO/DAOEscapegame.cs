@@ -69,12 +69,20 @@ class DAOEscapegame
                 return Context.Salles.ToList();
             }
         }
+
+        public int nbJoueurTotal(Salle Salle)
+        {
+            using(Context = new projet_apContext())
+            {
+                return Context.Parties.Count(s => s.IdSalle == Salle.IdSalle);
+            }
+        }
         
         public Salle ID_To_Salle(string nom)
         {
             using (Context = new projet_apContext())
             {
-                return Context.Salles.FirstOrDefault(s => s.NomSalle == nom);
+                return Context.Salles.FirstOrDefault(s => s.NomSalle == nom); // objet de type salle
             }
         }
             public DB ReturnDBObject()
