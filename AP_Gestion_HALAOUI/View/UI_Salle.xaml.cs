@@ -21,9 +21,21 @@ namespace AP_Gestion_HALAOUI.View
     /// </summary>
     public partial class UI_Salle : UserControl
     {
-        public UI_Salle(Salle UneSalle)
+        public Salle UneSalleDeJeu = new Salle();
+        public UI_Salle(Salle UneSalle, Utilisateur utilisateur)
         {
+            UneSalleDeJeu = UneSalle;
             InitializeComponent();
+
+            if(utilisateur.Grade > 1)
+            {
+                Prix.Visibility = Visibility.Visible;
+                PrixErreur.Visibility = Visibility.Hidden;
+            } else if(utilisateur.Grade <= 1){
+                Prix.Visibility = Visibility.Hidden;
+                PrixErreur.Visibility = Visibility.Visible;
+            }
+
 
             for (int i = 0; i < UneSalle.Difficulte; i++)
             {
@@ -33,29 +45,89 @@ namespace AP_Gestion_HALAOUI.View
             lbl_difficulte.HorizontalAlignment = HorizontalAlignment.Right;
 
             DAOEscapegame DAO = new DAOEscapegame();
+            
+            MessageBox.Show(DAO.NBTotalParties(UneSalle).ToString());
 
-            MessageBox.Show(DAO.nbJoueurTotal(UneSalle).ToString());
+            lbl_joueurs_total.Content = lbl_joueurs_total.Content + " " + DAO.NbTotalJoeuur(UneSalle);
 
             lbl_title.Content = lbl_title.Content + " " + UneSalle.NomSalle;
 
             lbl_title.HorizontalAlignment = HorizontalAlignment.Center;
+
+            lbl_parties_jouees.Content = lbl_parties_jouees.Content + " " + DAO.NBTotalParties(UneSalle).ToString() + "";
+
+            lbl_joueurs_max.Content = lbl_joueurs_max.Content + " " + UneSalle.NbJoueurMax.ToString() + "";
+
             lbl_localisation.Content = lbl_localisation.Content + " " + DAO.ID_To_Localisation(UneSalle.Localisation).Ville + ", " + DAO.ID_To_Localisation(UneSalle.Localisation).CodePostal;
+
+            lbl_prix_joueur.Content = lbl_prix_joueur.Content + " " + DAO.TarificationBySalle(UneSalle).PrixJoueur.ToString() + "€";
+
+            lbl_prix_obstacle.Content = lbl_prix_obstacle.Content + " " + DAO.TarificationBySalle(UneSalle).PrixObstacle.ToString() + "€";
+
+            lbl_prix_heure.Content = lbl_prix_heure.Content + " " + DAO.TarificationBySalle(UneSalle).PrixHeure.ToString() + "€";
+
+
+            lbl_parties_jouees.HorizontalAlignment = HorizontalAlignment.Center;
+            lbl_prix_heure.HorizontalAlignment = HorizontalAlignment.Right;
+
+            lbl_prix_joueur.HorizontalAlignment = HorizontalAlignment.Center;
+            lbl_prix_heure.HorizontalAlignment = HorizontalAlignment.Right;
 
             LoadCB(UneSalle);
         }
 
         public void LoadCB(Salle salle)
         {
-            for (int i = 0; i < salle.NbJoueurMax; i++)
+            for (int i = 1; i <= salle.NbJoueurMax; i++)
             {
                 CB_nb_Joueurs.Items.Add(i);
             }
             
-           for (int i = 0; i < salle.NbJoueurMax; i++)
+           for (int i = 1; i <= salle.NbOstacleMax; i++)
            {
-                    CB_nb_Obstacle.Items.Add(i + 1);
+                    CB_nb_Obstacle.Items.Add(i);
            }
-           
+
+            CB_nb_heures.Items.Add("1");
+            CB_nb_heures.Items.Add("2");
+            CB_nb_heures.Items.Add("3");
+
+            CB_nb_Joueurs.SelectedIndex = 0;
+            CB_nb_Obstacle.SelectedIndex = 0;
+            CB_nb_heures.SelectedIndex = 0;
+
+        }
+
+        public void Calculer()
+        {
+            DAOEscapegame DAO = new DAOEscapegame();
+            string s = "";
+            int prix_total_joueurs = Convert.ToInt16(DAO.TarificationBySalle(UneSalleDeJeu).PrixJoueur) * Convert.ToInt16(CB_nb_Joueurs.SelectedValue);
+            int prix_total_obstacles = Convert.ToInt16(DAO.TarificationBySalle(UneSalleDeJeu).PrixObstacle) * Convert.ToInt16(CB_nb_Obstacle.SelectedValue);
+
+            if(Convert.ToInt16(CB_nb_heures.SelectedValue) > 1)
+            {
+                s = "s";
+            }
+            montant_simul.Content = "Le prix par heure est de " + prix_total_joueurs + "€ pour les joueurs, " +
+                prix_total_obstacles + "€ pour les obstacles, soit un total de " +
+                ((prix_total_joueurs + prix_total_obstacles)*Convert.ToInt16(CB_nb_heures.SelectedValue)) +
+                "€ pour " + CB_nb_heures.SelectedValue + " heure" + s + ".";
+        }
+
+        private void CB_nb_Obstacle_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Calculer();
+        }
+
+        private void CB_nb_Joueurs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Calculer();
+        }
+
+        private void CB_nb_heures_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Calculer();
         }
     }
 }

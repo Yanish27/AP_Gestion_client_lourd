@@ -78,7 +78,7 @@ namespace AP_Gestion_HALAOUI.View
                         {
                             // Si les identifiants sont bons, on passe en argument les informations de l'utilisateur
                             this.Close();
-                            tac.arg(TB_Username.Text);
+                            tac.arg(DAO.EmailToUser(TB_Username.Text));
                             tac.Show();
                         }
                         else

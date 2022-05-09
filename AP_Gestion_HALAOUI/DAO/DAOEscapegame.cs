@@ -70,13 +70,62 @@ class DAOEscapegame
             }
         }
 
-        public int nbJoueurTotal(Salle Salle)
+        public int NBTotalParties(Salle Salle)
         {
             using(Context = new projet_apContext())
             {
                 return Context.Parties.Count(s => s.IdSalle == Salle.IdSalle);
             }
         }
+
+        public int NbTotalJoeuur(Salle Salle)
+        {
+            int total = 0;
+            using (Context = new projet_apContext())
+            {
+                foreach (Party p in Context.Parties)
+                {
+                    if (p.IdSalle == Salle.IdSalle)
+                    {
+                        total = total + p.NbJoueurs;
+                    }
+                }
+            }
+            return total;
+        }
+
+
+        public Utilisateur EmailToUser(string email)
+        {
+            using (Context = new projet_apContext())
+            {
+                return Context.Utilisateurs.FirstOrDefault(u => u.Email == email);
+            }
+        }
+
+
+
+        public Tarification TarificationBySalle(Salle salle)
+        {
+            using (Context = new projet_apContext())
+            {
+                try
+                {
+                    return Context.Tarification.FirstOrDefault(s => s.IdSalle == salle.IdSalle);
+                }
+                catch
+                {
+                    Tarification tarif_error = new Tarification();
+                    tarif_error.IdTarif = 0;
+                    tarif_error.IdSalle = 0;
+                    tarif_error.PrixHeure = 0;
+                    tarif_error.PrixJoueur = 0;
+                    tarif_error.PrixObstacle = 0;
+                    return tarif_error;
+                }
+            }
+        }
+
 
 
         public Lieuxactivite ID_To_Localisation(int id)

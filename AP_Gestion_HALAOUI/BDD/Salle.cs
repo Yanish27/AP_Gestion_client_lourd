@@ -13,6 +13,7 @@ namespace AP_Gestion_HALAOUI.BDD
         public string ImagePresentation { get; set; }
         public string DescriptionPresentation { get; set; }
         public int NbJoueurMax { get; set; }
+        public int NbOstacleMax { get; set; }
         public int Difficulte { get; set; }
 
         public virtual Lieuxactivite LocalisationNavigation { get; set; }

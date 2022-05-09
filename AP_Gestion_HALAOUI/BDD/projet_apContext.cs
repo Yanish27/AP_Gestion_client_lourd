@@ -13,7 +13,7 @@ namespace AP_Gestion_HALAOUI.BDD
 {
     public partial class projet_apContext : DbContext
     {
-            
+
         public projet_apContext()
         {
         }
@@ -30,10 +30,11 @@ namespace AP_Gestion_HALAOUI.BDD
         public virtual DbSet<Temoignage> Temoignages { get; set; }
         public virtual DbSet<UsersAdmin> UsersAdmins { get; set; }
         public virtual DbSet<Utilisateur> Utilisateurs { get; set; }
+        public virtual DbSet<Tarification> Tarification { get; set; }
 
 
         public DB dB = new DB();
-        public DB SetConnPriv(string server, int port, string identifiant, string mdp,  string bdd)
+        public DB SetConnPriv(string server, int port, string identifiant, string mdp, string bdd)
         {
 
             dB.server = server;
@@ -55,8 +56,8 @@ namespace AP_Gestion_HALAOUI.BDD
         {
             DAOEscapegame DAO = new DAOEscapegame();
             optionsBuilder.UseMySql(DAO.get_ConnexionString(), Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.21-mysql"), o => o.CommandTimeout(100));
-    
-            
+
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -115,6 +116,7 @@ namespace AP_Gestion_HALAOUI.BDD
                 entity.Property(e => e.NbJoueurs).HasColumnName("nb_joueurs");
 
                 entity.Property(e => e.NbObstacle).HasColumnName("nb_obstacle");
+
 
                 entity.Property(e => e.NomPartie)
                     .IsRequired()
@@ -233,6 +235,33 @@ namespace AP_Gestion_HALAOUI.BDD
                     .IsRequired()
                     .HasMaxLength(255)
                     .HasColumnName("motdepasse");
+            });
+
+            modelBuilder.Entity<Tarification>(entity =>
+            {
+
+                entity.HasKey(e => e.IdTarif)
+                    .HasName("PRIMARY");
+                
+                entity.ToTable("tarification");
+
+                entity.Property(e => e.IdTarif).HasColumnName("IdTarif");
+
+                entity.Property(e => e.PrixHeure)
+                    .HasColumnType("int")
+                    .HasColumnName("Prix_Heure");
+
+                entity.Property(e => e.PrixJoueur)
+                    .HasColumnType("int")
+                    .HasColumnName("Prix_Joueur");
+
+                entity.Property(e => e.PrixObstacle)
+                    .HasColumnType("int")
+                    .HasColumnName("Prix_Obstacle");
+
+                entity.Property(e => e.IdSalle)
+                    .HasColumnType("int")
+                    .HasColumnName("IdSalle");
             });
 
             OnModelCreatingPartial(modelBuilder);

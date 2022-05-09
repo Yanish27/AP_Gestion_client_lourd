@@ -19,7 +19,7 @@
             <RowDefinition Height="40" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Label Name="lbl_title" Content="Nom de la salle :" FontFamily="Arial" FontSize="25"/>
+        <Label Name="lbl_title" Content="Salle" FontFamily="Arial" FontSize="25"/>
         <Grid Grid.Row="1" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -35,40 +35,49 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Label Name="lbl_parties_jouees" Content="Nombres de parties jouées :" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></Label>
-            <Label Name="lbl_joueurs_max" Content="Nombre de joueurs au maximum : " Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"></Label>
+            <Label Name="lbl_joueurs_max" Content="Nombre de joueurs max : " Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></Label>
+            <Label Name="lbl_parties_jouees" Content="Nombres de parties jouées :" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"></Label>
+            <Label Name="lbl_joueurs_total" Content="Nombre de joueurs au total : " Grid.Row="0" Grid.Column="2" VerticalAlignment="Center"></Label>
         </Grid>
         <Grid Grid.Row="4">
             <Label Content="Informations financières" FontFamily="Arial" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Grid>
-        <Grid Grid.Row="5" Grid.ColumnSpan="2">
+        <Grid Grid.Row="5" Grid.ColumnSpan="2" Visibility="Hidden" Name="Prix">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Label Name="lbl_prix_heure" Content="Prix par heure :" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></Label>
-            <Label Name="lbl_prix_obstacle" Content="Prix par un obstacle : " Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"></Label>
-            <Label Name="lbl_prix_joueur" Content="Prix par joueur : " Grid.Row="0" Grid.Column="2" VerticalAlignment="Center"></Label>
+            <Label Name="lbl_prix_obstacle" Content="Prix par un obstacle : " Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></Label>
+            <Label Name="lbl_prix_joueur" Content="Prix par joueur : " Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"></Label>
+            <Label Name="lbl_prix_heure" Content="Prix par heure :" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center"></Label>
+        </Grid>
+        <Grid Grid.Row="5" Grid.ColumnSpan="2" Visibility="Visible" Name="PrixErreur">
+            <Label Content="Vous devez avoir un grade supérieur pour accéder à ces informations." HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
         </Grid>
         <Grid Grid.Row="6">
             <Label Content="Simulation" FontFamily="Arial" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Grid>
         <Grid Grid.Row="7" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="70" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="70" />
             </Grid.ColumnDefinitions>
             <Label Name="lbl_simul_nb_joueur" Content="Nombre de joueurs :" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></Label>
-            <ComboBox Grid.Column="1" Margin="0,0,0,0" Width="50" Name="CB_nb_Joueurs"></ComboBox>
-            <Label Name="lbl_simul_nb_obstacle" Content="Nombre d'obstacle :" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center"></Label>
-            <ComboBox Grid.Column="4" Margin="0,0,0,0" Width="50"  Name="CB_nb_Obstacle"></ComboBox>
+            <ComboBox Grid.Column="1" Margin="0,0,0,0" Width="50" Name="CB_nb_Joueurs" Height="20" VerticalAlignment="Center" SelectionChanged="CB_nb_Joueurs_SelectionChanged"></ComboBox>
+            <Label Name="lbl_simul_nb_obstacle" Content="Nombre d'obstacles :" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center"></Label>
+            <ComboBox Grid.Column="3" Margin="0,0,0,0" Width="50"  Name="CB_nb_Obstacle" Height="20" SelectionChanged="CB_nb_Obstacle_SelectionChanged"></ComboBox>
+            <Label Name="lbl_simul_heures" Content="Durée (en heures) :" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"></Label>
+            <ComboBox Grid.Column="5" Margin="0,0,0,0" Width="50" Name="CB_nb_heures" Height="20" SelectionChanged="CB_nb_heures_SelectionChanged"></ComboBox>
         </Grid>
         <Grid Grid.Row="8">
-            <Label Content="fkfkfk"></Label>
+            <Label Name="montant_simul" Content="fkfkfk"></Label>
         </Grid>
     </Grid>
 

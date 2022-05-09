@@ -21,8 +21,11 @@ namespace AP_Gestion_HALAOUI
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
-    {        
+    {
+
+        Utilisateur User = new Utilisateur();
         public MainWindow()
         {
             InitializeComponent();
@@ -40,8 +43,9 @@ namespace AP_Gestion_HALAOUI
             this.Hide();
         }
 
-        public void arg(string bla)
+        public void arg(Utilisateur utilisateur)
         {
+            User = utilisateur;
             DAOEscapegame DAO = new DAOEscapegame();
 
             CB_Salles.Items.Add("Général");
@@ -49,7 +53,8 @@ namespace AP_Gestion_HALAOUI
             {
                 CB_Salles.Items.Add(salles.NomSalle);
             }
-            MessageBox.Show("Variable passée : " + bla);
+            MessageBox.Show("Variable passée : " + utilisateur.Email.ToString());
+
 
         }
 
@@ -58,7 +63,7 @@ namespace AP_Gestion_HALAOUI
             DAOEscapegame DAO = new DAOEscapegame();
             AffichageSalle.Children.Clear();
             // MessageBox.Show(CB_Salles.SelectedValue.ToString());
-            AffichageSalle.Children.Add(new UI_Salle(DAO.ID_To_Salle(CB_Salles.SelectedValue.ToString())));
+            AffichageSalle.Children.Add(new UI_Salle(DAO.ID_To_Salle(CB_Salles.SelectedValue.ToString()) , User));
 
         }
     }
