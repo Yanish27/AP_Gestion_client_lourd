@@ -77,6 +77,16 @@ class DAOEscapegame
                 return Context.Parties.Count(s => s.IdSalle == Salle.IdSalle);
             }
         }
+
+
+        public Lieuxactivite ID_To_Localisation(int id)
+        {
+            using (Context = new projet_apContext())
+            {
+                // retourne un objet de type Lieu
+                return Context.Lieuxactivites.Where(s => s.IdLieu == id).First();
+            }
+        }
         
         public Salle ID_To_Salle(string nom)
         {

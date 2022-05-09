@@ -8,21 +8,67 @@
              d:DesignHeight="400" d:DesignWidth="550" Background="Wheat">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="45" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Label Name="lbl_title" Content="Nom de la salle :" FontFamily="Arial" FontSize="25" Grid.ColumnSpan="2" Margin="177,0,0,0"></Label>
+        <Label Name="lbl_title" Content="Nom de la salle :" FontFamily="Arial" FontSize="25"/>
         <Grid Grid.Row="1" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Label Name="lbl_nomsalletxt" Content="Nom de la salle :" Grid.Row="0" Grid.Column="0"></Label>
-            <Label Name="lbltxt" Content="Diffculté de la salle (sur 5) : " Grid.Row="0" Grid.Column="1"></Label>
+            <Label Name="lbl_localisation" Content="Localisation :" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></Label>
+            <Label Name="lbl_difficulte" Content="Diffculté de la salle (sur 5) : " Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"></Label>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Label Content="Informations générales" FontFamily="Arial" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="3" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Name="lbl_parties_jouees" Content="Nombres de parties jouées :" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></Label>
+            <Label Name="lbl_joueurs_max" Content="Nombre de joueurs au maximum : " Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"></Label>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Label Content="Informations financières" FontFamily="Arial" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="5" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Name="lbl_prix_heure" Content="Prix par heure :" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></Label>
+            <Label Name="lbl_prix_obstacle" Content="Prix par un obstacle : " Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"></Label>
+            <Label Name="lbl_prix_joueur" Content="Prix par joueur : " Grid.Row="0" Grid.Column="2" VerticalAlignment="Center"></Label>
+        </Grid>
+        <Grid Grid.Row="6">
+            <Label Content="Simulation" FontFamily="Arial" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="7" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Name="lbl_simul_nb_joueur" Content="Nombre de joueurs :" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></Label>
+            <ComboBox Grid.Column="1" Margin="0,0,0,0" Width="50" Name="CB_nb_Joueurs"></ComboBox>
+            <Label Name="lbl_simul_nb_obstacle" Content="Nombre d'obstacle :" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center"></Label>
+            <ComboBox Grid.Column="4" Margin="0,0,0,0" Width="50"  Name="CB_nb_Obstacle"></ComboBox>
+        </Grid>
+        <Grid Grid.Row="8">
+            <Label Content="fkfkfk"></Label>
         </Grid>
     </Grid>
 
