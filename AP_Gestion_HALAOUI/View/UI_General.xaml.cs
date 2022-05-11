@@ -14,13 +14,18 @@ using System.Windows.Shapes;
 namespace AP_Gestion_HALAOUI.View
 {
     /// <summary>
-    /// Logique d'interaction pour UI_Configuration.xaml
+    /// Logique d'interaction pour UI_General.xaml
     /// </summary>
-    public partial class UI_Configuration : UserControl
+    public partial class UI_General : UserControl
     {
-        public UI_Configuration()
+        public UI_General()
         {
             InitializeComponent();
+        }
+
+        private void CB_nb_Joueurs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

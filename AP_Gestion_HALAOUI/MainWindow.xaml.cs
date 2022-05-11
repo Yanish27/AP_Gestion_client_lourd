@@ -53,9 +53,7 @@ namespace AP_Gestion_HALAOUI
             {
                 CB_Salles.Items.Add(salles.NomSalle);
             }
-            MessageBox.Show("Variable passée : " + utilisateur.Email.ToString());
-
-
+            //MessageBox.Show("Variable passée : " + utilisateur.Email.ToString());
         }
 
         private void CB_Salles_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -63,8 +61,18 @@ namespace AP_Gestion_HALAOUI
             DAOEscapegame DAO = new DAOEscapegame();
             AffichageSalle.Children.Clear();
             // MessageBox.Show(CB_Salles.SelectedValue.ToString());
-            AffichageSalle.Children.Add(new UI_Salle(DAO.ID_To_Salle(CB_Salles.SelectedValue.ToString()) , User));
+            if (CB_Salles.SelectedIndex != 0)
+            {
+                // Affichage du controle utilisateur Salle en donnant en argument un objet de type Salle
+                AffichageSalle.Children.Add(new UI_Salle(DAO.ID_To_Salle(CB_Salles.SelectedValue.ToString()), User));
+            } else
+            {
+                // Affichage du controle utilisateur "Général"
+                AffichageSalle.Children.Add(new View.UI_General());
+                AffichageSalle.HorizontalAlignment = HorizontalAlignment.Center;
+                AffichageSalle.VerticalAlignment = VerticalAlignment.Center;
 
+            }
         }
     }
 }
