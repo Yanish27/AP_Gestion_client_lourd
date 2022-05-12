@@ -10,7 +10,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using AP_Gestion_HALAOUI.DAO;
+using AP_Gestion_HALAOUI.BDD;
+using AP_Gestion_HALAOUI.Controller;
 namespace AP_Gestion_HALAOUI.View
 {
     /// <summary>
@@ -18,13 +20,19 @@ namespace AP_Gestion_HALAOUI.View
     /// </summary>
     public partial class UI_General : UserControl
     {
+        DAOEscapegame DAO = new DAOEscapegame();
         public UI_General()
         {
             InitializeComponent();
+            Actualiser();
         }
-
-        private void CB_nb_Joueurs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void Actualiser()
         {
+            lbl_nbr_salles.Content = lbl_nbr_salles.Content + " " + Convert.ToString(DAO.NbrSalles());
+            lbl_nbr_parties.Content = lbl_nbr_parties.Content + " " + Convert.ToString(DAO.NbrTotalParties());
+            lbl_nbr_joueur_total.Content = lbl_nbr_joueur_total.Content + " " + Convert.ToString(DAO.NbTotalJoueurs());
+
+            lbl_pourcent_reussite.Content = lbl_pourcent_reussite.Content + " " + Convert.ToString(DAO.PourentageReussite()) + "%";
 
         }
     }

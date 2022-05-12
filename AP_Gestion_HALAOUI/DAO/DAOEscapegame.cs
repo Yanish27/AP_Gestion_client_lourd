@@ -45,6 +45,61 @@ class DAOEscapegame
             return dbaccess;
         }
 
+        public int NbrSalles()
+        {
+            int total = 0;
+            using (Context = new projet_apContext())
+            {
+                foreach (Salle s in Context.Salles)
+                {
+                    total++;
+                }
+            }
+            return total;
+        }
+
+        public int NbrTotalParties()
+        {
+            int total = 0;
+            using (Context = new projet_apContext())
+            {
+                foreach (Party p in Context.Parties)
+                {
+                    total++;
+                }
+            }
+            return total;
+        }
+
+        public int NbTotalJoueurs()
+        {
+            int total = 0;
+            using (Context = new projet_apContext())
+            {
+                foreach (Party p in Context.Parties)
+                {
+                    total = total + p.NbJoueurs;
+                }
+            }
+            return total;
+        }
+
+        public double PourentageReussite()
+        {
+            double total = 0;
+            using (Context = new projet_apContext())
+            {
+                foreach (Party p in Context.Parties)
+                {
+                    total = total + p.Reussite;
+                }
+            }
+            return Math.Round((total / NbrTotalParties())* 100,0);
+        }
+
+
+        
+
         public string get_ConnexionString()
         {
             string abc = "";

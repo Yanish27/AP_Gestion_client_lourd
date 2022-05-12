@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AP_Gestion_HALAOUI.View"
         mc:Ignorable="d" Height="350" Width="500"
-        MaxHeight="350" MaxWidth="500"
+        MaxHeight="350" MaxWidth="1000"
         MinHeight="350" MinWidth="500">
     <Grid Background="White" Margin="0,0,0,0" x:Name="Login">
         <Grid.RowDefinitions>
