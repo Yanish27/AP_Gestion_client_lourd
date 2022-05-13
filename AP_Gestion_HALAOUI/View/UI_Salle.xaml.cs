@@ -46,7 +46,6 @@ namespace AP_Gestion_HALAOUI.View
 
             DAOEscapegame DAO = new DAOEscapegame();
             
-            MessageBox.Show(DAO.NBTotalParties(UneSalle).ToString());
 
             lbl_joueurs_total.Content = lbl_joueurs_total.Content + " " + DAO.NbTotalJoeuur(UneSalle);
 

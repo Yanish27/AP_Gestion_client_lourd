@@ -58,6 +58,7 @@ namespace AP_Gestion_HALAOUI
 
         private void CB_Salles_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
             DAOEscapegame DAO = new DAOEscapegame();
             AffichageSalle.Children.Clear();
             // MessageBox.Show(CB_Salles.SelectedValue.ToString());

@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AP_Gestion_HALAOUI.View"
-             mc:Ignorable="d"  Height="500" Width="1000" Background="Wheat">
+             mc:Ignorable="d"  Height="420" Width="1000" Background="Wheat">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -16,9 +16,8 @@
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
-            <RowDefinition Height="40" />
-            <RowDefinition Height="40" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
         </Grid.RowDefinitions>
         <Label Name="lbl_info_generales" Content="Informations générales" FontFamily="Arial" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Grid Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -40,8 +39,6 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Label Name="lbl_nbr_parties_ce_mois" Content="Parties ce mois-ci : " Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left"></Label>
-            <Label Name="lbl_duree_moyenne_partie" Content="Durée moyenne d'une partie :" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"></Label>
             <Label Name="lbl_pourcent_reussite" Content="   % de réussite : " Grid.Row="0" Grid.Column="2" VerticalAlignment="Center"></Label>
         </Grid>
         <Grid Grid.Row="4" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -50,7 +47,6 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Label Name="lbl_salle_la_plus_utilisee" Content="Salle la plus utilisée : " Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></Label>
             <Label Name="lbl_nb_joueurs_en_moyenne" Content="Nombre de joueurs en moyenne :" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"></Label>
             <Label Name="lbl_obstacle_en_moyenne" Content="Nombre d'obstacle en moyenne :" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center"></Label>
         </Grid>
@@ -60,6 +56,18 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+        </Grid>
+
+        <Grid Grid.Row="5">
+            <Label Name="lbl_titre_grid" Content="Liste des parties" FontFamily="Arial" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+            <DataGrid Grid.Column="1" Name="AllPartie"></DataGrid>
         </Grid>
     </Grid>
 

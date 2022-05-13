@@ -34,6 +34,10 @@ namespace AP_Gestion_HALAOUI.View
 
             lbl_pourcent_reussite.Content = lbl_pourcent_reussite.Content + " " + Convert.ToString(DAO.PourentageReussite()) + "%";
 
+
+            lbl_nb_joueurs_en_moyenne.Content = lbl_nb_joueurs_en_moyenne.Content + " " + Math.Round(DAO.GetAVGJoueurs(), 0).ToString();
+
+            AllPartie.ItemsSource = DAO.getAllParties();
         }
     }
 }

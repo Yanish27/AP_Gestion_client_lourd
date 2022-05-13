@@ -40,8 +40,8 @@ namespace AP_Gestion_HALAOUI.View
             /* Mettre les dimensions voulues ici */
             tac = mn;
 
-            TB_Password.Password = "mdp";
-            TB_Username.Text = "yanish";
+            TB_Password.Password = "%EGC2022";
+            TB_Username.Text = "ACC_EMP_001@egc.fr";
            
 
 

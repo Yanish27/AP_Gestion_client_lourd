@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\PC\Desktop\projet apo\0705\AP_Gestion_HALAOUI\obj\Debug\netcoreapp3.1\
+C:\Users\SIO2\source\repos\AP_Gestion_client_lourd\AP_Gestion_HALAOUI\obj\Debug\netcoreapp3.1\
 AP_Gestion_HALAOUI
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
-C:\Users\PC\Desktop\projet apo\0705\AP_Gestion_HALAOUI\App.xaml
+C:\Users\SIO2\source\repos\AP_Gestion_client_lourd\AP_Gestion_HALAOUI\App.xaml
 5796490220
 
 20446829594
-209-1277188548
+209-1384302411
 MainWindow.xaml;View\UI_Configuration_Window.xaml;View\UI_General.xaml;View\UI_Login_Window.xaml;View\UI_Salle.xaml;
 
 True

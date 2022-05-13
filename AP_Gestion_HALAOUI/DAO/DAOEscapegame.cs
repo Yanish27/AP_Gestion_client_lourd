@@ -58,6 +58,16 @@ class DAOEscapegame
             return total;
         }
 
+
+
+        public IEnumerable<Party> getAllParties()
+        {
+            using (Context = new projet_apContext())
+            {
+                var allsalle = Context.Parties.ToList();
+                return allsalle;
+            }
+        }
         public int NbrTotalParties()
         {
             int total = 0;
@@ -235,6 +245,16 @@ class DAOEscapegame
             return db;
         }
 
+
+        public double GetAVGJoueurs()
+        {
+            using (Context = new projet_apContext())
+            {
+
+                double NBJoueurs = Context.Parties.Average(a => a.NbJoueurs);
+                return NBJoueurs;
+            }
+        }
 
 
         public void set_ConnexionString(string host, int port, string id, string mdp, string DB)
